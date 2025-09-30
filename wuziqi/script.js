@@ -104,6 +104,21 @@ const i18nConfig = {
         playAgain: "Chơi lại",
         blackWins: "Quân Đen thắng!",
         whiteWins: "Quân Trắng thắng!"
+    },
+    'km': {
+        title: 'ល្បែងកំប៉ុងធ្នូ',
+        currentPlayer: 'អ្នកលេងបច្ចុប្បន្ន៖',
+        gameReady: 'ល្បែងត្រៀមរួចរាល់',
+        reset: 'ចាប់ផ្តើមឡើងវិញ',
+        undo: 'ថយក្រោយ',
+        rulesTitle: 'ច្បាប់ល្បែង',
+        rule1: 'វេនគ្នាដាក់ក្បួនលើក្តារ',
+        rule2: 'អ្នកដំបូងដែលភ្ជាប់បានប្រាំក្បួនជាអ្នកឈ្នះ',
+        rule3: 'អាចភ្ជាប់តាមបណ្តោយ បណ្តឹង ឬ​ទ្រេត',
+        playerWins: 'អ្នកលេង {player} ឈ្នះ!',
+        gameDraw: 'សម្រុប!',
+        blackPlayer: 'ខ្មៅ',
+        whitePlayer: 'ស'
     }
 };
 
