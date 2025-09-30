@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏中心 - Game Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部区域 -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">🎮 游戏中心</h1>
+                <p class="subtitle">精选网页游戏合集 - 即点即玩，无需下载</p>
+            </div>
+            <div class="header-decoration">
+                <div class="floating-icon">🎯</div>
+                <div class="floating-icon">🎲</div>
+                <div class="floating-icon">🏆</div>
+            </div>
+        </header>
+
+        <!-- 游戏网格 -->
+        <main class="games-grid">
+            <!-- 五子棋游戏卡片 -->
+            <div class="game-card" data-game="wuziqi">
+                <div class="game-thumbnail">
+                    <div class="game-icon">⚫⚪</div>
+                    <div class="game-preview">
+                        <canvas id="gomoku-preview" width="120" height="120"></canvas>
+                    </div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">五子棋</h3>
+                    <p class="game-description">经典策略对战游戏，支持双人本地对战</p>
+                    <div class="game-features">
+                        <span class="feature-tag">双人对战</span>
+                        <span class="feature-tag">悔棋功能</span>
+                        <span class="feature-tag">多语言</span>
+                    </div>
+                </div>
+                <div class="game-actions">
+                    <button class="play-button" onclick="playGame('wuziqi')">
+                        <span class="play-icon">▶</span>
+                        开始游戏
+                    </button>
+                    <button class="info-button" onclick="showGameInfo('wuziqi')">
+                        ℹ️ 详情
+                    </button>
+                </div>
+            </div>
+
+            <!-- 更多游戏占位卡片 -->
+            <div class="game-card coming-soon">
+                <div class="game-thumbnail">
+                    <div class="game-icon">🚧</div>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">更多游戏</h3>
+                    <p class="game-description">敬请期待更多精彩游戏...</p>
+                    <div class="game-features">
+                        <span class="feature-tag">开发中</span>
+                    </div>
+                </div>
+                <div class="game-actions">
+                    <button class="play-button disabled" disabled>
+                        <span class="play-icon">⏳</span>
+                        敬请期待
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 统计信息 -->
+        <section class="stats">
+            <div class="stat-item">
+                <div class="stat-number">1</div>
+                <div class="stat-label">可玩游戏</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">0</div>
+                <div class="stat-label">下载需求</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">免费游玩</div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2024 游戏中心. 使用现代Web技术构建 🚀</p>
+            <div class="footer-links">
+                <a href="https://github.com/wolong2024/games" target="_blank">🔗 GitHub源码</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 游戏详情模态框 -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
