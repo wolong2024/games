@@ -106,19 +106,25 @@ const i18nConfig = {
         whiteWins: "Quân Trắng thắng!"
     },
     'km': {
-        title: 'ល្បែងកំប៉ុងធ្នូ',
-        currentPlayer: 'អ្នកលេងបច្ចុប្បន្ន៖',
-        gameReady: 'ល្បែងត្រៀមរួចរាល់',
-        reset: 'ចាប់ផ្តើមឡើងវិញ',
-        undo: 'ថយក្រោយ',
-        rulesTitle: 'ច្បាប់ល្បែង',
-        rule1: 'វេនគ្នាដាក់ក្បួនលើក្តារ',
-        rule2: 'អ្នកដំបូងដែលភ្ជាប់បានប្រាំក្បួនជាអ្នកឈ្នះ',
-        rule3: 'អាចភ្ជាប់តាមបណ្តោយ បណ្តឹង ឬ​ទ្រេត',
-        playerWins: 'អ្នកលេង {player} ឈ្នះ!',
-        gameDraw: 'សម្រុប!',
-        blackPlayer: 'ខ្មៅ',
-        whitePlayer: 'ស'
+        title: "ល្បែងគុមហ្គូ",
+        gameTitle: "ល្បែងគុមហ្គូ",
+        currentPlayer: "អ្នកលេងបច្ចុប្បន្ន៖",
+        blackPiece: "ខ្មៅ",
+        whitePiece: "ស",
+        gameInProgress: "ល្បែងកំពុងដំណើរការ",
+        gameOver: "ល្បែងចប់",
+        restart: "ចាប់ផ្តើមឡើងវិញ",
+        undo: "ថយក្រោយ",
+        moveHistory: "ប្រវត្តិការចលនា",
+        gameRules: "ច្បាប់ល្បែង",
+        rule1: "ខ្មៅចាប់ផ្តើមដំបូង ស់មកបន្ទាប់",
+        rule2: "ចុចលើក្តារដើម្បីដាក់គ្រាប់",
+        rule3: "អ្នកដំបូងភ្ជាប់បាន ៥ គ្រាប់ជាអ្នកឈ្នះ",
+        rule4: "អាចភ្ជាប់តាមផ្ដេក ផ្ដោយ ឬទ្រេត",
+        congratulations: "🎉 អបអរសាទរ! {player} ឈ្នះ!",
+        playAgain: "លេងម្តងទៀត",
+        blackWins: "ខ្មៅឈ្នះ!",
+        whiteWins: "សឈ្នះ!"
     }
 };
 
