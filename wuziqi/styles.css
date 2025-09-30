@@ -1,0 +1,508 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.game-header h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.current-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.player-indicator {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: #000;
+    transition: all 0.3s ease;
+}
+
+.player-indicator.white {
+    background: #fff;
+}
+
+.game-status {
+    font-size: 1.1em;
+    padding: 8px 16px;
+    background: #3498db;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* 主游戏区域 */
+.game-main {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-board-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+#game-board {
+    border: 2px solid #8B4513;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #DEB887;
+    display: block;
+    /* 防止在移动端缩放导致的模糊 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    /* 确保canvas不会被意外缩放 */
+    max-width: 100%;
+    height: auto;
+}
+
+#game-board:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 游戏控制面板 */
+.game-controls {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+}
+
+.control-btn {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 走棋记录 */
+.move-history {
+    margin-top: 25px;
+}
+
+.move-history h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+.move-list {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.move-item {
+    padding: 5px 10px;
+    margin: 2px 0;
+    border-radius: 5px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.move-item.black {
+    background: #2c3e50;
+    color: white;
+}
+
+.move-item.white {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+/* 游戏规则 */
+.game-footer {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.game-rules h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.game-rules ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.game-rules li {
+    background: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.game-rules li:hover {
+    transform: scale(1.05);
+}
+
+/* 胜利弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#win-message {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* 头部布局优化 */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 语言选择器样式 */
+.language-selector select {
+    text-align: center;
+    padding: 8px 12px;
+    border: 2px solid #3498db;
+    border-radius: 20px;
+    background: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    /* 自定义下拉箭头位置 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.language-selector select:hover {
+    border-color: #2980b9;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* 改进的移动端适配 */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    .game-main {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .game-board-container {
+        width: 100%;
+        max-width: 100vw;
+        padding: 15px;
+        overflow: hidden;
+    }
+    
+    #game-board {
+        /* 移除固定的宽高设置，让JavaScript动态控制 */
+        touch-action: manipulation;
+        /* 防止双击缩放 */
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        /* 确保触摸精确度 */
+        pointer-events: auto;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .header-top {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .game-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .game-controls {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .control-btn {
+        font-size: 1em;
+        padding: 15px 20px;
+        margin: 8px 0;
+    }
+    
+    .move-history {
+        margin-top: 20px;
+    }
+    
+    .move-list {
+        max-height: 150px;
+    }
+    
+    .game-rules ul {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .game-rules li {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        width: 95%;
+        max-width: 350px;
+        padding: 25px;
+    }
+    
+    #win-message {
+        font-size: 1.5em;
+    }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 480px) {
+    .game-header {
+        padding: 15px;
+    }
+    
+    .game-header h1 {
+        font-size: 1.5em;
+    }
+    
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .language-selector select {
+        font-size: 0.85em;
+        padding: 6px 10px;
+    }
+    
+    /* 超小屏幕下的游戏板由JavaScript动态控制尺寸 */
+    
+    .current-player {
+        font-size: 1em;
+    }
+    
+    .game-status {
+        font-size: 0.95em;
+        padding: 6px 12px;
+    }
+    
+    .control-btn {
+        font-size: 0.95em;
+        padding: 12px 18px;
+    }
+    
+    .move-list {
+        max-height: 120px;
+        font-size: 0.85em;
+    }
+    
+    .game-rules li {
+        font-size: 0.85em;
+        padding: 10px 12px;
+    }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 600px) and (orientation: landscape) {
+    .game-main {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .game-board-container {
+        flex-shrink: 0;
+    }
+    
+    /* 横屏模式下的游戏板由JavaScript动态控制尺寸 */
+    
+    .game-controls {
+        max-width: 200px;
+        min-width: 180px;
+    }
+    
+    .move-list {
+        max-height: 100px;
+    }
+    
+    .game-footer {
+        margin-top: 20px;
+    }
+    
+    .game-rules ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+    .control-btn {
+        min-height: 44px;
+        font-size: 1.1em;
+    }
+    
+    .language-selector select {
+        min-height: 40px;
+        font-size: 1em;
+    }
+    
+    #game-board {
+        cursor: default;
+    }
+}
+
+/* 滚动条样式 */
+.move-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.move-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.move-list::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 3px;
+}
+
+.move-list::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}

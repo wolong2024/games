@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title data-i18n="title">网页版五子棋游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <div class="header-top">
+                <h1 data-i18n="gameTitle">五子棋游戏</h1>
+                <div class="language-selector">
+                    <select id="language-select">
+                        <option value="zh">简体中文</option>
+                        <option value="en">English</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="vi">Tiếng Việt</option>
+                    </select>
+                </div>
+            </div>
+            <div class="game-info">
+                <div class="current-player">
+                    <span data-i18n="currentPlayer">当前玩家：</span>
+                    <span id="current-player-text" data-i18n="blackPiece">黑子</span>
+                    <div class="player-indicator" id="player-indicator"></div>
+                </div>
+                <div class="game-status" id="game-status" data-i18n="gameInProgress">游戏进行中</div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="game-board-container">
+                <canvas id="game-board" width="600" height="600"></canvas>
+            </div>
+            
+            <div class="game-controls">
+                <button id="restart-btn" class="control-btn" data-i18n="restart">重新开始</button>
+                <button id="undo-btn" class="control-btn" data-i18n="undo">悔棋</button>
+                <div class="move-history">
+                    <h3 data-i18n="moveHistory">走棋记录</h3>
+                    <div id="move-list" class="move-list"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-footer">
+            <div class="game-rules">
+                <h3 data-i18n="gameRules">游戏规则</h3>
+                <ul>
+                    <li data-i18n="rule1">黑子先手，白子后手</li>
+                    <li data-i18n="rule2">在棋盘上点击放置棋子</li>
+                    <li data-i18n="rule3">率先连成5子者获胜</li>
+                    <li data-i18n="rule4">可横向、纵向、斜向连线</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="win-message" data-i18n="congratulations">恭喜获胜！</h2>
+            <button id="new-game-btn" class="control-btn" data-i18n="playAgain">再来一局</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
